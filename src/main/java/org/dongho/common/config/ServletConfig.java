@@ -9,7 +9,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 @EnableWebMvc
-@ComponentScan(basePackages = {"org.dongho.main" , "org.dongho.time.controller"})
+@ComponentScan(basePackages = {"org.dongho.time.controller" , "org.dongho.board.controller"})
 public class ServletConfig implements WebMvcConfigurer{
 
 	@Override

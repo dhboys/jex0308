@@ -1,7 +1,7 @@
-package org.dongho.board;
+package org.dongho.board.mapper;
 
 import org.dongho.board.config.BoardConfig;
-import org.dongho.board.mapper.BoardMapper;
+import org.dongho.board.domain.Board;
 import org.dongho.common.config.CommonConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,14 +14,21 @@ import lombok.extern.log4j.Log4j;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {CommonConfig.class , BoardConfig.class})
 @Log4j
-public class BoardTests {
+public class BoardMapperTests {
 
 	@Autowired
 	private BoardMapper mapper;
 	
 	@Test
-	public void testList() {
-		mapper.getList().forEach(b -> log.info(b));
+	public void testInsert() {
+		Board vo = Board.builder().title("mapper 테스트").content("content 테스트").writer("writer 테스트").build();
+		
+		mapper.insert(vo);
+	}
+	
+	@Test
+	public void testRead() {
+		log.info(mapper.read(3));
 	}
 	
 }

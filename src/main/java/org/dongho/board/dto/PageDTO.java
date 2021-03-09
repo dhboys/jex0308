@@ -1,20 +1,21 @@
 package org.dongho.board.dto;
 
-import java.sql.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class BoardDTO {
+public class PageDTO {
 
-	private Integer bno;
-	private String title,content,writer;
-	private Date regdate,updateDate;
+	@Builder.Default
+	private int page = 1;
+	@Builder.Default
+	private int perSheet = 10;
 	
+	public int getSkip() {
+		return (page - 1) * perSheet;
+	}
 }
